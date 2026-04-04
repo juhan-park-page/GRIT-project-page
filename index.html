@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Learning Dexterous Grasping from Sparse Taxonomy Guidance">
+  <meta name="keywords" content="Dexterous Grasping, Robotics, Hand Taxonomy">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learning Dexterous Grasping from Sparse Taxonomy Guidance</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Learning Dexterous Grasping from Sparse Taxonomy Guidance</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://juhanpark.com">Juhan Park<sup>1</sup></a>,</span>
+            <span class="author-block"><a href="https://taerimyoon.me">Taerim Yoon<sup>1</sup></a>,</span>
+            <span class="author-block"><a href="https://forworksmk.github.io/">Seungmin Kim<sup>1</sup></a>,</span>
+            <span class="author-block"><a href="#">Joonggil Kim<sup>3</sup></a>,</span>
+            <span class="author-block"><a href="#">Wontae Ye<sup>3</sup></a>,</span>
+            <span class="author-block"><a href="https://jeongeun-park-page.github.io/ ">Jeongeun Park<sup>1</sup></a>,</span>
+            <span class="author-block"><a href="#">Yoonbyung Chai<sup>1</sup></a>,</span>
+            <span class="author-block"><a href="#">Geonwoo Cho<sup>3</sup></a>,</span>
+            <span class="author-block"><a href="#">Geunwoo Cho<sup>3</sup></a>,</span>
+            <span class="author-block"><a href="#">Dohyeong Kim<sup>2</sup></a>,</span>
+            <span class="author-block"><a href="#">Kyungjae Lee<sup>1</sup></a>,</span>
+            <span class="author-block"><a href="#">Yongjae Kim<sup>3,4</sup></a>,</span>
+            <span class="author-block"><a href="https://sites.google.com/view/sungjoon-choi/home?authuser=0">Sungjoon Choi<sup>1,5</sup></a></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup><a href="https://www.korea.edu/sites/en/index.do">Korea University</a>,</span>
+            <span class="author-block"><sup>2</sup><a href="https://www.snu.ac.kr">Seoul National University</a></span>
+            <span class="author-block"><sup>3</sup><a href="https://www.koreatech.ac.kr">Korea University of Technology and Education</a></span>
+            <span class="author-block"><sup>4</sup><a href="https://www.wirobotics.com/main">WIRobotics</a></span>
+            <span class="author-block"><sup>5</sup><a href="https://www.rlwrld.ai/kr/about">RLWRLD</a></span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948" 
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <!-- 내 youtube 링크 추가하기 -->
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon)</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/o-ogAUEHNiY?rel=0&amp;showinfo=0&amp;autoplay=1" 
+              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+   
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Dexterous manipulation requires planning a grasp configuration suited to the object and task, which is then executed through coordinated multi-finger control.
+            However, specifying grasp plans with dense pose or contact targets for every object and task is impractical.
+            Meanwhile, end-to-end reinforcement learning from task rewards alone lacks controllability, making it difficult for users to intervene when failures occur.
+            To this end, we present <b>GRIT</b>, a two-stage framework that learns dexterous control from <i>sparse taxonomy guidance</i>.
+            GRIT first predicts a taxonomy-based grasp specification from the scene and task context.
+            Conditioned on this sparse command, a policy generates continuous finger motions that accomplish the task while preserving the intended grasp structure.
+            Our result shows that certain grasp taxonomies are more effective for specific object geometries.
+            By leveraging this relationship, <b>GRIT</b> improves generalization to novel objects over baselines and achieves an overall success rate of 87.9%.
+            Moreover, real-world experiments demonstrate controllability, enabling grasp strategies to be adjusted through high-level taxonomy selection based on object geometry and task intent.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+<!-- 중앙 정렬을 위한 커스텀 클래스 적용 -->
+<section class="section center-content-section">
+  <div class="container is-max-desktop">
+    <!-- Simulation Results as one column -->
+    <div class="columns is-centered">
+      <div class="column is-fullwidth">
+        <div class="content">
+          <h2 class="title is-3">Simulation Results</h2>
+          <p>
+            By taking various postures to grasp specific objects, our method demonstrates dexterous grasping capabilities.
+            Only sparse guidance is provided to the policy, and the policy is able to adapt to the object geometry and task intent.
+          </p>
+          <div class="has-text-centered">
+            <video id="dollyzoom" autoplay controls muted loop playsinline style="max-width:100%;height:auto;">
+              <source src="./static/videos/GRIT_Simulation_Results_encode.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Simulation Results -->
+    <!-- Comparison with Baselines as one column -->
+    <div class="columns is-centered">
+      <div class="column is-fullwidth">
+        <div class="content">
+          <h2 class="title is-3">Comparison with Baselines</h2>
+          <p>
+              We demonstrate that naive RL suffers from hand pose bias and fails to achieve diverse grasp postures.
+          </p>
+          <div class="has-text-centered">
+            <video id="matting-video" autoplay controls muted loop playsinline style="max-width:100%;height:auto;">
+              <source src="./static/videos/Comparison_w_baseline_encode.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Comparison with Baselines -->
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Real robot deployment</h2>
+      <p>
+        We deployed our method on the humanoid robot, Allex. 
+        <br>
+        We demonstrate that our method can achieve diverse grasp postures.
+      </p>
+
+      <div id="results-carousel" class="carousel results-carousel">
+        
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/knife_precision_3_finger.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/knife_3_finger.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/mouse_tripod.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/packed_goods_ring.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/tea_pod_small_diamter.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/tip_pinch.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/gluegun_4_finger.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/driver_sphere_3_finger.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/driver_warp.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/sponge_precision_3_finger.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/sponge_precision_4_finger.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/sponge_squeeze.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/sponge_tripod.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/pill_tripod.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/pencil_sphere_3_finger.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/cup_shpere_3_finger.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/pring_sphere_4_finger.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/Grasping/pingpong_power_grasp.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
