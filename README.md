@@ -4,7 +4,7 @@ This is the repository that contains source code for the [GRIT website](https://
 
 If you find GRIT useful for your work please cite:
 ```
-@article{park2026GRIT,
+@article{park2026grit,
   title={Learning Dexterous Grasping from Sparse Taxonomy Guidance},
   author={Park, Juhan and Yoon, Taerim and Kim, Seungmin and Kim, Joonggil and Ye, Wontae and Park, Jeongeun and Chai, Yoonbyung and Cho, Geonwoo and Cho, Geunwoo and Kim, Dohyeong and others},
   journal={arXiv preprint arXiv:2604.04138},
