@@ -1,14 +1,14 @@
 # GRIT : Learning Dexterous Grasping from Sparse Taxonomy Guidance
 
-This is the repository that contains source code for the [GRIT website](https://nerfies.github.io).
+This is the repository that contains source code for the [GRIT website](https://juhanpark.com/GRIT-project-page/).
 
-If you find Nerfies useful for your work please cite:
+If you find GRIT useful for your work please cite:
 ```
-@article{park2021nerfies
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+@article{park2026GRIT,
+  title={Learning Dexterous Grasping from Sparse Taxonomy Guidance},
+  author={Park, Juhan and Yoon, Taerim and Kim, Seungmin and Kim, Joonggil and Ye, Wontae and Park, Jeongeun and Chai, Yoonbyung and Cho, Geonwoo and Cho, Geunwoo and Kim, Dohyeong and others},
+  journal={arXiv preprint arXiv:2604.04138},
+  year={2026}
 }
 ```
 
